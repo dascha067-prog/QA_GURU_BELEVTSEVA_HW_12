@@ -15,7 +15,6 @@ def setup_browser():
     user = os.getenv("SELENOID_USER")
     password = os.getenv("SELENOID_PASS")
     host = os.getenv("SELENOID_HOST")
-    port = os.getenv("SELENOID_PORT")
     browser_version = os.getenv("BROWSER_VERSION")
 
     selenoid_url = f"https://{user}:{password}@{host}/wd/hub"
