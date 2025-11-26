@@ -5,7 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from utils import allure_attach
 
-load_dotenv()  # подгружаем .env
+# Явно загружаем .env из корня проекта
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 
 @pytest.fixture(scope='function')
