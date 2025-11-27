@@ -13,12 +13,8 @@ def add_screenshot(driver):
 
 
 def add_logs(driver):
-    try:
-        logs = driver.get_log('browser')
-        text = "\n".join([f"{l['level']}: {l['message']}" for l in logs])
-        allure.attach(text, "browser_logs", AttachmentType.TEXT, ".log")
-    except Exception:
-        pass
+    log = "".join(f"{text}\n" for text in driver.execute("getLog", {'type': 'browser'})['value'])
+    allure.attach(log, "browser_logs", AttachmentType.TEXT, ".log")
 
 
 def add_html(driver):
